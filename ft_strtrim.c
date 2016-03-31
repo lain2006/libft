@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 #define CHECK_SPACE(x) (x == ' ' || x == '\n' || x == '\t')

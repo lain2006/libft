@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 void				swap_nodes(t_node **n1, t_node **n2)

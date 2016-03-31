@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 static size_t		count_words(char const *s, char c)
@@ -71,7 +60,7 @@ char				**ft_strsplit(char const *s, char c)
 	if (s)
 	{
 		nb_words = count_words(s, c);
-		ret = (char **)ft_memalloc(sizeof(char *) * (nb_words  + 1));
+		ret = (char **)ft_memalloc(sizeof(char *) * (nb_words + 1));
 		if (ret)
 		{
 			ret[nb_words] = NULL;
