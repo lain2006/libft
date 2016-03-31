@@ -1,21 +1,9 @@
-
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 static int			findpow(const char *nptr)
 {
 	int				ret;
-	
+
 	ret = 0;
 	while (ft_isdigit(*nptr))
 	{

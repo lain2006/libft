@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 void				clear_list(t_dblist **list)

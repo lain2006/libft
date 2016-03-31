@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 t_node				*add_node_start(t_dblist **list, t_node *node)

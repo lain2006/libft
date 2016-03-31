@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 t_node				*create_node(void *content, size_t size)

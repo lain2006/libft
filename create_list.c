@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 #include <libft.h>
 
 t_dblist			*create_list(void)
