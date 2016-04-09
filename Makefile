@@ -20,7 +20,6 @@ $(TARGET): $(OBJ)
 all: $(TARGET)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
