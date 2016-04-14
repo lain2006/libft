@@ -1,4 +1,16 @@
-TARGET = libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/04/12 18:59:52 by sbrochar          #+#    #+#              #
+#    Updated: 2016/04/13 15:12:21 by sbrochar         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
 
 INC_DIR = .
 SRC_DIR = .
@@ -14,19 +26,20 @@ LD = ar rcs
 
 RM = rm -f
 
-$(TARGET): $(OBJ)
+$(NAME): $(OBJ)
 	$(LD) $@ $^
 
-all: $(TARGET)
+all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(TARGET)
+	$(RM) $(NAME)
 
 re: fclean all
 

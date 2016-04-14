@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/12 19:45:29 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/04/12 19:45:30 by sbrochar         ###   ########.fr       */
+/*   Created: 2016/04/12 18:50:11 by sbrochar          #+#    #+#             */
+/*   Updated: 2016/04/14 12:13:49 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int						ft_memcmp(const void *s1, const void *s2, size_t n)
+char				*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t				i;
-	unsigned char const	*ps1;
-	unsigned char const	*ps2;
+	size_t			i;
+	size_t			pos;
+	char const		*ptr;
 
 	i = 0;
-	ps1 = (unsigned char const *)s1;
-	ps2 = (unsigned char const *)s2;
-	while (ps1 && ps2 && i < n)
+	pos = 0;
+	if (!ft_strlen(s2))
+		return ((char *)s1);
+	while (s1[i])
 	{
-		if ((unsigned char)ps1[i] != (unsigned char)ps2[i])
-			return ((unsigned char)ps1[i] - (unsigned char)ps2[i]);
-		i += 1;
+		while (s1[i] && i < n && (unsigned char)s1[i] != (unsigned char)s2[0])
+			i += 1;
+		if ((unsigned char)s1[i] == (unsigned char)s2[0])
+		{
+			ptr = s1 + i;
+			pos = i + 1;
+			if (!ft_strncmp(ptr, s2, n - i))
+				return ((char *)ptr);
+			i = pos;
+		}
 	}
-	return ((unsigned char)ps1[i - 1] - (unsigned char)ps2[i - 1]);
+	return (NULL);
 }

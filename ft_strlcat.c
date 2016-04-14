@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/12 19:39:45 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/04/12 19:39:46 by sbrochar         ###   ########.fr       */
+/*   Created: 2016/04/12 18:49:17 by sbrochar          #+#    #+#             */
+/*   Updated: 2016/04/13 13:30:24 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void				ft_strclr(char *s)
+size_t				ft_strlcat(char *dest, const char *src, size_t n)
 {
-	ft_bzero(s, ft_strlen(s));
+	size_t			i;
+	char			*pdest;
+
+	i = 0;
+	pdest = dest + ft_strlen(dest);
+	while (src[i] && i < n)
+	{
+		pdest[i] = src[i];
+		i += 1;
+	}
+	pdest[i] = '\0';
+	return (ft_strlen(dest));
 }

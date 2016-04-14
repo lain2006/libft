@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/12 19:40:32 by sbrochar          #+#    #+#             */
+/*   Updated: 2016/04/12 19:57:33 by sbrochar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <libft.h>
 
 void					*ft_memcpy(void *dest, const void *src, size_t n)
@@ -9,7 +21,7 @@ void					*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	pdest = dest;
 	psrc = src;
-	while (psrc && i < n)
+	while (i < n)
 	{
 		pdest[i] = psrc[i];
 		i += 1;
