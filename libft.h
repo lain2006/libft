@@ -157,4 +157,7 @@ int					ft_strpos(char *s, char c);
 int					ft_strnpos(char *s, char c, size_t n);
 char				*ft_strcjoin(char const *s1, char const *s2, char c);
 
+
+char				*ft_strndup(const char *s, size_t n);
+
 #endif
