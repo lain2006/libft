@@ -36,7 +36,7 @@ t_node				*add_node_end(t_dblist **list, t_node *node);
 t_node				*add_node_start(t_dblist **list, t_node *node);
 void				swap_nodes(t_node **n1, t_node **n2);
 void				remove_node(t_dblist **list, t_node *node);
-void				clear_list(t_dblist **list);
+void				free_list(t_dblist **list);
 t_node				*iter_list(t_dblist **list, int (*f)(t_node *));
 
 /*
