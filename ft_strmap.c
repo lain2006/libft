@@ -6,7 +6,7 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:39:58 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/04/12 19:39:59 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/05/13 14:22:49 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char				*ft_strmap(char const *s, char (*f)(char))
 	char			*ret;
 
 	i = 0;
-	ret = (char *)ft_memalloc(sizeof(char) * (ft_strlen(s) + 1));
+	ret = NULL;
+	if (s)
+		ret = (char *)ft_memalloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (ret && f)
 	{
 		while (ret && s && s[i])
