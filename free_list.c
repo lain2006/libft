@@ -6,7 +6,7 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:40:12 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/04/12 19:40:12 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/05/09 15:49:14 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void				free_list(t_dblist **list)
 	{
 		cur = (*list)->start;
 		while (cur)
-		{	
+		{
 			next = cur->next;
 			ft_memdel((void **)&(cur->content));
 			ft_memdel((void **)&cur);

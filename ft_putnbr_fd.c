@@ -6,7 +6,7 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:36:17 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/04/12 19:36:19 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/05/09 15:19:43 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void				ft_putnbr_fd(int n, int fd)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	ft_putnbrbase_fd(n, 10, fd);
 }
