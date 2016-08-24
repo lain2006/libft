@@ -6,7 +6,7 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:36:57 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/05/11 16:05:41 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/08/24 17:04:43 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static int			findpow(const char *nptr)
 			ret *= 10;
 		nptr += 1;
 	}
+	if (ret % 10)
+		return (0);
 	return (ret);
 }
 
@@ -46,6 +48,8 @@ int					ft_atoi(const char *nptr)
 	else if (*n == '+')
 		n += 1;
 	pow = findpow(n);
+	if (!pow)
+		return (pow);
 	while (pow >= 1)
 	{
 		ret = ret + ((*n - '0') * pow);
