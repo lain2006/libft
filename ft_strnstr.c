@@ -6,12 +6,12 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 18:50:11 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/05/13 13:00:32 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/09/21 17:46:54 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
+
 char				*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
@@ -34,7 +34,7 @@ char				*ft_strnstr(const char *s1, const char *s2, size_t n)
 			pos = i + 1;
 			if ((n - i) < size_s2)
 				return (NULL);
-			else if (!ft_strncmp(ptr, s2, n - i))
+			else if (!ft_strncmp(ptr, s2, size_s2))
 				return ((char *)ptr);
 			i = pos;
 		}
