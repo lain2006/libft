@@ -25,8 +25,6 @@ static int			findpow(const char *nptr)
 			ret *= 10;
 		nptr += 1;
 	}
-	if (ret % 10)
-		return (0);
 	return (ret);
 }
 
@@ -47,6 +45,8 @@ int					ft_atoi(const char *nptr)
 	}
 	else if (*n == '+')
 		n += 1;
+	while (*n == '0')
+		n++;
 	pow = findpow(n);
 	if (!pow)
 		return (pow);
