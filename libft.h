@@ -159,8 +159,8 @@ char				*ft_strcjoin(char const *s1, char const *s2, char c);
 
 
 char				*ft_strndup(const char *s, size_t n);
-unsigned int		ft_abs(int n);
+long int			ft_abs(int n);
 void				ft_putnbrbase_fd(int n, unsigned int base, int fd);
 void				ft_strrev(char **s);
-unsigned int		ft_pow(int n, int pow);
+long int			ft_pow(int n, int pow);
 #endif

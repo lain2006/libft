@@ -5,62 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/09 15:15:29 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/05/09 15:35:46 by sbrochar         ###   ########.fr       */
+/*   Created: 2016/04/12 19:40:04 by sbrochar          #+#    #+#             */
+/*   Updated: 2016/09/21 16:12:21 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-/*static unsigned	int	ft_nbrlen(int n, unsigned int base)
+static int			findlen(long int n)
 {
-	unsigned int	num;
-	unsigned int	d;
-	unsigned int	u;
-	int s;
+	int				ret;
 
-	num = 0;
-	s = n < 0 ? -1 : 1;
-	d = ft_abs(n);
-	u = d % base;
-	while (d)
+	ret = 1;
+	while (n >= 9)
 	{
-		d /= base;
-		u = d % base;
-		num++;
+		n /= 10;
+		ret += 1;
 	}
-	if (n < 0)
-		num++;
-	else if (!n)
-		num++;
-	return (num);
-}*/
-
-//#include <stdio.h>
-void	ft_putnbrbase_fd(int n, unsigned int base, int fd)
+	return (ret);
+}
+#include <stdio.h>
+void				ft_putnbrbase_fd(int n, unsigned int base, int fd)
 {
-	static char nb[12] = { 0 };
-	unsigned int	d;
-	unsigned int	u;
-	int s;
-	static char const	charset[] = "0123456789abcdefghijklmnopqrstuvwxyz";
-	char	*pnb;
+	int reste = 0;
+	int unite = 0;
+	(void)base;
+	(void)fd;
+	reste = n;
+	unite = n % 10;
+#if 0
+	int				len;
+	long int		pow;
+	long int		n_abs;
+	char			charset[] = "0123456789abcdefghijklmnopqrstuvwxyz";
 
-	pnb = &nb[10];
-	s = n < 0 ? -1 : 1;
-	d = ft_abs(n);
-	u = d % base;
-	while (d)
-	{
-		*pnb-- = charset[u];
-	//	printf("d = %d ; u = %d\n", d, u);
-		d /= base;
-		u = d % base;
-	}
+//(void)base;
+(void)charset;
+
+	printf("number to print: %d\n", n);
+	n_abs = ft_abs(n);
+	len = findlen(n_abs);
+	pow = ft_pow(10, len - 1);
 	if (n < 0)
-		*pnb-- = '-';
-	else if (!n)
-		*pnb-- = '0';
-//	*pnb++;
-	ft_putstr_fd(pnb, fd);
+		ft_putchar_fd('-', fd);
+	while (n_abs > 0)
+	{
+	//	printf("n_abs / pow : %ld / %ld = %ld (%c)\n", n_abs, pow, (n_abs/pow), charset[(n_abs/pow) % base]);
+			
+		ft_putchar_fd((n_abs / pow) + '0', fd);
+		n_abs %= pow;
+		pow /= 10;
+	}
+#endif
 }
