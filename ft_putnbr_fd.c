@@ -5,14 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/12 19:36:17 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/05/09 15:19:43 by sbrochar         ###   ########.fr       */
+/*   Created: 2016/04/12 19:40:04 by sbrochar          #+#    #+#             */
+/*   Updated: 2016/10/05 15:53:38 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
+static int			findlen(long int n)
+{
+	int				ret;
+
+	ret = 1;
+	while (n >= 9)
+	{
+		n /= 10;
+		ret += 1;
+	}
+	return (ret);
+}
+
 void				ft_putnbr_fd(int n, int fd)
 {
-	ft_putnbrbase_fd(n, 10, fd);
+	int				len;
+	long int		pow;
+	long int		n_abs;
+
+	n_abs = ft_abs(n);
+	len = findlen(n_abs);
+	pow = ft_pow(10, len - 1);
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	while (n_abs > 0)
+	{
+		ft_putchar_fd((n_abs / pow) + '0', fd);
+		n_abs %= pow;
+		pow /= 10;
+	}
 }
