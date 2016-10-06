@@ -6,7 +6,7 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:42:35 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/09/21 15:40:08 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/10/05 17:09:41 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,10 +157,10 @@ int					ft_strpos(char *s, char c);
 int					ft_strnpos(char *s, char c, size_t n);
 char				*ft_strcjoin(char const *s1, char const *s2, char c);
 
-
 char				*ft_strndup(const char *s, size_t n);
 long int			ft_abs(int n);
 void				ft_putnbrbase_fd(int n, unsigned int base, int fd);
 void				ft_strrev(char **s);
 long int			ft_pow(int n, int pow);
+
 #endif
