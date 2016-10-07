@@ -6,7 +6,7 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 18:50:11 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/10/05 16:45:06 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/10/07 23:55:40 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char				*ft_strnstr(const char *s1, const char *s2, size_t n)
 	size_s2 = ft_strlen(s2);
 	if (!size_s2)
 		return ((char *)s1);
-	while (s1[i])
+	while (s1[i] && i < n)
 	{
 		while (s1[i] && i < n && (unsigned char)s1[i] != (unsigned char)s2[0])
 			i += 1;
