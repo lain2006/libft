@@ -6,12 +6,12 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:40:04 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/10/05 15:53:38 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/10/08 01:32:16 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
+#include <stdio.h>
 static int			findlen(long int n)
 {
 	int				ret;
@@ -31,6 +31,7 @@ void				ft_putnbr_fd(int n, int fd)
 	long int		pow;
 	long int		n_abs;
 
+//	printf("\nnumber to print: %d\n", n);
 	n_abs = ft_abs(n);
 	len = findlen(n_abs);
 	pow = ft_pow(10, len - 1);
@@ -42,4 +43,6 @@ void				ft_putnbr_fd(int n, int fd)
 		n_abs %= pow;
 		pow /= 10;
 	}
+	if (!(n % 10))
+		ft_putchar_fd('0', fd);
 }
