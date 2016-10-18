@@ -6,13 +6,13 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:30:47 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/10/08 01:54:27 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/10/18 16:17:40 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static void	ft_delcontent(void *mem, size_t size)
+static void			ft_delcontent(void *mem, size_t size)
 {
 	ft_bzero(mem, size);
 	ft_memdel(&mem);
@@ -20,10 +20,10 @@ static void	ft_delcontent(void *mem, size_t size)
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*newelem;
-	t_list	*begin;
-	t_list	*next;
-	void	*del;
+	t_list			*newelem;
+	t_list			*begin;
+	t_list			*next;
+	void			*del;
 
 	del = &ft_delcontent;
 	if (lst && f)

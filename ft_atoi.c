@@ -6,12 +6,12 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:36:57 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/10/08 01:43:29 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/10/18 16:14:57 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
+
 static int			findpow(const char *nptr)
 {
 	int				ret;
@@ -35,7 +35,6 @@ int					ft_atoi(const char *nptr)
 	int				neg;
 	char			*n;
 
-//	printf("\nstring to convert: [%s]", nptr);
 	ret = 0;
 	neg = 0;
 	n = ft_strtrim(nptr);
