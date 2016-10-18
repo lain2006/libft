@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
+
 static int			findlen(long int n)
 {
 	int				ret;
@@ -31,18 +31,18 @@ void				ft_putnbr_fd(int n, int fd)
 	long int		pow;
 	long int		n_abs;
 
-//	printf("\nnumber to print: %d\n", n);
 	n_abs = ft_abs(n);
 	len = findlen(n_abs);
 	pow = ft_pow(10, len - 1);
 	if (n < 0)
 		ft_putchar_fd('-', fd);
-	while (n_abs > 0)
+	while (pow > 0)
 	{
-		ft_putchar_fd((n_abs / pow) + '0', fd);
+		if (n_abs)
+			ft_putchar_fd((n_abs / pow) + '0', fd);
+		else
+			ft_putchar_fd('0', fd);
 		n_abs %= pow;
 		pow /= 10;
 	}
-	if (!(n % 10))
-		ft_putchar_fd('0', fd);
 }
