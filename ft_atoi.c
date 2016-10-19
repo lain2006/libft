@@ -6,15 +6,15 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:36:57 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/10/18 16:14:57 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/10/19 18:48:07 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static int			findpow(const char *nptr)
+static long int		findpow(const char *nptr)
 {
-	int				ret;
+	long int		ret;
 
 	ret = 0;
 	while (ft_isdigit(*nptr))
@@ -28,25 +28,33 @@ static int			findpow(const char *nptr)
 	return (ret);
 }
 
+static char			*pre_atoi(const char *nptr, int *neg)
+{
+	char			*ret;
+
+	ret = ft_strtrim(nptr);
+	if (*ret == '-')
+	{
+		*neg = 1;
+		ret += 1;
+	}
+	else if (*ret == '+')
+		ret += 1;
+	while (*ret == '0')
+		ret++;
+	return (ret);
+}
+
 int					ft_atoi(const char *nptr)
 {
 	int				ret;
-	int				pow;
+	long int		pow;
 	int				neg;
 	char			*n;
 
 	ret = 0;
 	neg = 0;
-	n = ft_strtrim(nptr);
-	if (*n == '-')
-	{
-		neg = 1;
-		n += 1;
-	}
-	else if (*n == '+')
-		n += 1;
-	while (*n == '0')
-		n++;
+	n = pre_atoi(nptr, &neg);
 	pow = findpow(n);
 	if (!pow)
 		return (pow);
