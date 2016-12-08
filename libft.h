@@ -6,7 +6,7 @@
 /*   By: sbrochar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 19:42:35 by sbrochar          #+#    #+#             */
-/*   Updated: 2016/10/05 17:09:41 by sbrochar         ###   ########.fr       */
+/*   Updated: 2016/12/08 17:15:31 by sbrochar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
+
+# define BUFF_SIZE 100
 
 typedef struct		s_node
 {
@@ -162,5 +164,13 @@ long int			ft_abs(int n);
 void				ft_putnbrbase_fd(int n, unsigned int base, int fd);
 void				ft_strrev(char **s);
 long int			ft_pow(int n, int pow);
+int					get_next_line(const int fd, char **line);
+
+typedef struct		s_gnl
+{
+	int				fd;
+	size_t			size;
+	int				ret;
+}					t_gnl;
 
 #endif
