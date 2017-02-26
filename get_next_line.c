@@ -13,12 +13,6 @@
 #include <libft.h>
 #include <unistd.h>
 
-#define FIRST_CALL -3
-#define BUF_HAS_DATA -2
-#define READ_ERROR -1
-#define END_OF_FILE 0
-#define BUF_HAS_LINE 1
-
 static int			process_old_data(char buf[BUFF_SIZE], char **line,
 		size_t *size)
 {
@@ -35,15 +29,15 @@ static int			process_old_data(char buf[BUFF_SIZE], char **line,
 			ft_bzero(*line + posline, BUFF_SIZE - posline + 1);
 			ft_memmove(buf, buf + posbuf + 1, BUFF_SIZE - (posbuf + 1));
 			ft_bzero(buf + (BUFF_SIZE - (posbuf + 1)), posbuf + 1);
-			return (BUF_HAS_LINE);
+			return (GNL_BUF_HAS_LINE);
 		}
 		else
 		{
 			*size = ft_strlen(buf);
-			return (BUF_HAS_DATA);
+			return (GNL_BUF_HAS_DATA);
 		}
 	}
-	return (FIRST_CALL);
+	return (GNL_FIRST_CALL);
 }
 
 static void			handle_newline_in_buf(t_gnl *env, char buf[BUFF_SIZE],
@@ -60,21 +54,21 @@ static void			handle_newline_in_buf(t_gnl *env, char buf[BUFF_SIZE],
 		ft_memmove(buf, buf + posbuf + 1, BUFF_SIZE - (posbuf + 1));
 		ft_bzero(buf + (BUFF_SIZE - (posbuf + 1)), posbuf + 1);
 	}
-	env->ret = BUF_HAS_LINE;
+	env->ret = GNL_BUF_HAS_LINE;
 }
 
 static int			process_buf(t_gnl *env, char buf[BUFF_SIZE], char **line)
 {
-	if (!(env->ret == READ_ERROR))
+	if (!(env->ret == GNL_READ_ERROR))
 	{
-		if (!(env->ret == END_OF_FILE))
+		if (!(env->ret == GNL_END_OF_FILE))
 			handle_newline_in_buf(env, buf, line);
 		else
 		{
 			if (*line)
 			{
 				ft_bzero(buf, BUFF_SIZE);
-				env->ret = BUF_HAS_LINE;
+				env->ret = GNL_BUF_HAS_LINE;
 			}
 		}
 	}
@@ -108,14 +102,14 @@ int					get_next_line(int fd, char **line)
 	{
 		*line = NULL;
 		buf_state = process_old_data(buf, line, &(env.size));
-		if (buf_state == BUF_HAS_LINE)
-			return (BUF_HAS_LINE);
-		else if (buf_state == BUF_HAS_DATA || buf_state == FIRST_CALL)
+		if (buf_state == GNL_BUF_HAS_LINE)
+			return (GNL_BUF_HAS_LINE);
+		else if (buf_state == GNL_BUF_HAS_DATA || buf_state == GNL_FIRST_CALL)
 		{
 			ft_bzero(buf, BUFF_SIZE);
 			ft_get_line(&env, line, buf);
 		}
 		return (process_buf(&env, buf, line));
 	}
-	return (READ_ERROR);
+	return (GNL_READ_ERROR);
 }

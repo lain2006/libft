@@ -157,6 +157,11 @@ int					ft_tolower(int c);
 */
 
 # define BUFF_SIZE 100
+# define GNL_FIRST_CALL -3
+# define GNL_BUF_HAS_DATA -2
+# define GNL_READ_ERROR -1
+# define GNL_END_OF_FILE 0
+# define GNL_BUF_HAS_LINE 1
 
 int					get_next_line(const int fd, char **line);
 
