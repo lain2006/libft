@@ -1,6 +1,6 @@
 #include <libft.h>
 
-char				**ft_tabdup(const char **tab);
+char				**ft_tabdup(const char **tab)
 {
 	char			**ret;
 	size_t			nb_elem;
