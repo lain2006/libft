@@ -133,6 +133,13 @@ char				*ft_strndup(const char *s, size_t n);
 void				ft_strrev(char **s);
 
 /*
+** libtab
+*/
+
+char				**ft_tabdup(const char **tab);
+//void				ft_tabdel(char ***tab);
+
+/*
 ** libmath
 */
 

@@ -28,9 +28,9 @@ ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strstr.c ft_strnstr.c \
 ft_strcmp.c ft_strncmp.c ft_atoi.c ft_strpos.c ft_strnpos.c ft_strnew.c \
 ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strcjoin.c ft_strtrim.c \
-ft_strsplit.c ft_itoa.c ft_strrev.c ft_abs.c ft_pow.c ft_exit.c ft_isalpha.c \
-ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_tolower.c ft_toupper.c \
-get_next_line.c
+ft_strsplit.c ft_itoa.c ft_strrev.c ft_tabdup.c ft_abs.c ft_pow.c ft_exit.c \
+ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_tolower.c \
+ft_toupper.c get_next_line.c
 OBJ = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC))
 
 CC = gcc
